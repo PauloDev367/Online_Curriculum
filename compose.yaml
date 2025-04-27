@@ -1,0 +1,7 @@
+﻿services:
+  onlinecurriculum:
+    image: onlinecurriculum
+    build:
+      context: .
+      dockerfile: OnlineCurriculum/Dockerfile
+
