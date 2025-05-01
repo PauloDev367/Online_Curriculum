@@ -7,6 +7,7 @@ builder.Services.AddControllers();
 
 builder.Services.ConfigureIdentityAuth(builder.Configuration);
 builder.ConfigureDbContext();
+builder.Services.ConfigureIdentityAuth();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
