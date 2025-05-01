@@ -12,8 +12,8 @@ using OnlineCurriculum.Data;
 namespace OnlineCurriculum.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250501135554_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250501205150_CreateTableRefreshTokens")]
+    partial class CreateTableRefreshTokens
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,10 +105,12 @@ namespace OnlineCurriculum.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -145,10 +147,12 @@ namespace OnlineCurriculum.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -185,7 +189,7 @@ namespace OnlineCurriculum.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("ResumeFileId")
+                    b.Property<Guid?>("ResumeFileId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Technilogies")
@@ -201,7 +205,8 @@ namespace OnlineCurriculum.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ResumeFileId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ResumeFileId] IS NOT NULL");
 
                     b.ToTable("CandidateProfiles");
                 });
@@ -239,6 +244,43 @@ namespace OnlineCurriculum.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RecruiterProfiles");
+                });
+
+            modelBuilder.Entity("OnlineCurriculum.Models.RefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("JwtId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Revoked")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Used")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens");
                 });
 
             modelBuilder.Entity("OnlineCurriculum.Models.ResumeFile", b =>
@@ -413,11 +455,20 @@ namespace OnlineCurriculum.Migrations
                 {
                     b.HasOne("OnlineCurriculum.Models.ResumeFile", "ResumeFile")
                         .WithOne("CandidateProfile")
-                        .HasForeignKey("OnlineCurriculum.Models.CandidateProfile", "ResumeFileId")
+                        .HasForeignKey("OnlineCurriculum.Models.CandidateProfile", "ResumeFileId");
+
+                    b.Navigation("ResumeFile");
+                });
+
+            modelBuilder.Entity("OnlineCurriculum.Models.RefreshToken", b =>
+                {
+                    b.HasOne("OnlineCurriculum.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ResumeFile");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("OnlineCurriculum.Models.User", b =>

@@ -30,10 +30,4 @@
       </Content>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Controller\" />
-      <Folder Include="Dtos\" />
-      <Folder Include="Services\" />
-    </ItemGroup>
-
 </Project>

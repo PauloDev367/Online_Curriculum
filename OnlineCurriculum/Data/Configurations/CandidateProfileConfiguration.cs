@@ -11,6 +11,10 @@ public class CandidateProfileConfiguration : IEntityTypeConfiguration<CandidateP
         builder.HasOne(c => c.User)
             .WithOne(u=>u.CandidateProfile);
     
+        builder.HasOne(c => c.ResumeFile)
+            .WithOne(r=>r.CandidateProfile)
+            .IsRequired(false);
+        
         builder.Property(c => c.CreatedAt)
             .HasColumnName("CreatedAt")
             .HasDefaultValueSql("CURRENT_TIMESTAMP")

@@ -6,3 +6,10 @@ public enum Role
     Recruiter,
     Admin
 }
+
+public static class RoleConstants
+{
+    public const string Candidate = "Candidate";
+    public const string Recruiter = "Recruiter";
+    public const string Admin = "Admin";
+}
