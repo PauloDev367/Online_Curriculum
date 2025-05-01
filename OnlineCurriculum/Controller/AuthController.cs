@@ -18,11 +18,19 @@ public class AuthController : ControllerBase
     public async Task<IActionResult> Login([FromBody] UserLoginRequest request)
     {
         var token = await _identityService.Login(request);
-        if (token.Errors != null)
+    
+        if (token.Errors != null && token.Errors.Any())
         {
-            return Ok(token);
+            return BadRequest(token); // Retorna erro corretamente
         }
 
-        return BadRequest(token);
+        return Ok(token); // Login bem-sucedido
+    }
+
+    [HttpPost("refresh")]
+    public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest model)
+    {
+        var data = await _identityService.Refresh(model);
+        return Ok(data);
     }
 }

@@ -10,9 +10,11 @@ public class AppDbContext : IdentityDbContext<User>
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
     }
+    
     public DbSet<CandidateProfile> CandidateProfiles { get; set; }
     public DbSet<RecruiterProfile> RecruiterProfiles { get; set; }
     public DbSet<ResumeFile> ResumeFiles { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
