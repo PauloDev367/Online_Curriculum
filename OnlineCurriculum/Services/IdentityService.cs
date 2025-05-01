@@ -49,8 +49,7 @@ public class IdentityService
         {
             response.SetErros(result.Errors.Select(er => er.Description));
         }
-
-        await _userManager.AddToRoleAsync(identityUser, request.Role.ToString());
+        
         return response;
     }
 
