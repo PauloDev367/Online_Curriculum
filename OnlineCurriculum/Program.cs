@@ -25,6 +25,8 @@ app.UseHttpsRedirection();
 
 app.MapGet("/", () => { return "Service online"; });
 
+app.UseAuthentication();
+app.UseAuthorization();
 
 using (var scope = app.Services.CreateScope())
 {
