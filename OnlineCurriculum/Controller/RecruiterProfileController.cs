@@ -17,25 +17,5 @@ public class RecruiterProfileController : ControllerBase
         _service = service;
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Register([FromBody] CreateRecruiterProfileRequest request)
-    {
-        try
-        {
-            var created = await _service.CreateAsync(request);
-            return Ok(created);
-        }
-        catch (Exception e)
-        {
-            var responseRequest = new ResponseRequest<object>();
-            if (e.Message.Equals("Failed to create user"))
-            {
-                responseRequest.AddError(e.Message);
-                return BadRequest(responseRequest);
-            }
-
-            responseRequest.AddError(e.Message);
-            return StatusCode(500, responseRequest);
-        }
-    }
+   
 }

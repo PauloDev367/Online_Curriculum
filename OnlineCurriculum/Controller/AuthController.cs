@@ -13,6 +13,16 @@ public class AuthController : ControllerBase
     {
         _identityService = identityService;
     }
+    
+    [HttpPost("users")]
+    public async Task<IActionResult> Registrate([FromBody] CreateNewUserRequest request)
+    {
+        var user = await _identityService.CreateNewUser(request);
+        if (user.Errors != null)
+            return Ok(user);
+
+        return BadRequest(user);
+    }
 
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] UserLoginRequest request)
