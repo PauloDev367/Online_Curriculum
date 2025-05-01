@@ -8,5 +8,6 @@ public static class AppServicesProviderExtension
     {
         services.AddTransient<IdentityService>();
         services.AddTransient<CandidateProfileService>();
+        services.AddTransient<RecruiterService>();
     }
 }
