@@ -1,7 +1,7 @@
 using OnlineCurriculum.Extensions;
+DotNetEnv.Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
-DotNetEnv.Env.Load();
 
 builder.Services.AddControllers();
 

@@ -12,6 +12,8 @@ public class CandidateProfile
     public string Technilogies { get; set; }
     public int ExperienceYears { get; set; }
     public string Location { get; set; }
+    public Guid ResumeFileId { get; set; }
+    [JsonIgnore] public ResumeFile ResumeFile { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 }

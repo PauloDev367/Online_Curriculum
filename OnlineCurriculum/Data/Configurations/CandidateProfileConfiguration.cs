@@ -8,7 +8,8 @@ public class CandidateProfileConfiguration : IEntityTypeConfiguration<CandidateP
 {
     public void Configure(EntityTypeBuilder<CandidateProfile> builder)
     {
-        builder.HasOne(c => c.User);
+        builder.HasOne(c => c.User)
+            .WithOne(u=>u.CandidateProfile);
     
         builder.Property(c => c.CreatedAt)
             .HasColumnName("CreatedAt")

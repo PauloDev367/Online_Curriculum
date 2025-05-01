@@ -8,7 +8,8 @@ public class RecruiterProfileConfiguration : IEntityTypeConfiguration<RecruiterP
 {
     public void Configure(EntityTypeBuilder<RecruiterProfile> builder)
     {
-        builder.HasOne(r => r.User);
+        builder.HasOne(r => r.User)
+            .WithOne(u=>u.RecruiterProfile);
         builder.Property(r => r.CreatedAt)
             .HasColumnName("CreatedAt")
             .HasDefaultValueSql("CURRENT_TIMESTAMP")
