@@ -33,7 +33,7 @@ public class IdentityService
 
         var response = new ResponseRequest<SimpleUserResponseRequest>();
 
-        var result = await _userManager.CreateAsync(identityUser, request.Senha);
+        var result = await _userManager.CreateAsync(identityUser, request.Password);
         if (result.Succeeded)
         {
             await _userManager.SetLockoutEnabledAsync(identityUser, false);
@@ -44,7 +44,8 @@ public class IdentityService
         {
             response.SetErros(result.Errors.Select(er => er.Description));
         }
-
+        
+        await _userManager.AddToRoleAsync(identityUser, request.Role.ToString());
         return response;
     }
 

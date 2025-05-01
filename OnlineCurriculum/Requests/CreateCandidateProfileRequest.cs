@@ -1,12 +1,19 @@
 using System.ComponentModel.DataAnnotations;
-using OnlineCurriculum.Enums;
 
 namespace OnlineCurriculum.Requests;
 
-public class CreateNewUserRequest
+public class CreateCandidateProfileRequest
 {
     [Required]
-    public string Name { get; set; }
+    public string FullName { get; set; }
+    [Required]
+    public string Bio { get; set; }
+    [Required]
+    public string Technilogies { get; set; }
+    [Required]
+    public int ExperienceYears { get; set; }
+    [Required]
+    public string Location { get; set; }
     [Required]
     [EmailAddress]
     public string Email { get; set; }
@@ -15,6 +22,4 @@ public class CreateNewUserRequest
     public string Password { get; set; }
     [Compare(nameof(Password))]
     public string ConfirmPassword { get; set; }
-
-    public Role Role { get; set; }
 }
