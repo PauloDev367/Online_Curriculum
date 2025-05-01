@@ -5,7 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.ConfigureIdentityAuth(builder.Configuration);
 builder.ConfigureDbContext();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -22,4 +24,10 @@ app.UseHttpsRedirection();
 
 app.MapGet("/", () => { return "Service online"; });
 
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    await ConfigureRolesExtension.SeedRolesAsync(services);
+}
 app.Run();
