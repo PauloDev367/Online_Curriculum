@@ -12,13 +12,13 @@ public class S3Service
 {
     private readonly S3Settings _settings;
     private readonly IAmazonS3 _client;
-    private readonly AppDbContext _context;
 
-    public S3Service(IAmazonS3 s3Client,
-        IOptions<S3Settings> S3Settings, AppDbContext context)
+    public S3Service(
+        IAmazonS3 s3Client,
+        IOptions<S3Settings> S3Settings
+    )
     {
         _client = s3Client;
-        _context = context;
         _settings = S3Settings.Value;
     }
 
