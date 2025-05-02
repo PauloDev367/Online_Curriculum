@@ -76,11 +76,17 @@ public class CandidateProfileService
 
         if (profile is null)
             return false;
-
-
+        
         var user = await _userManager.FindByIdAsync(userId.ToString());
         await _userManager.RemoveFromRoleAsync(user, RoleConstants.Candidate);
 
+        var resumeFile = await _context.ResumeFiles.FirstOrDefaultAsync(rm => rm.CandidateId.Equals(profile.Id));
+
+        if (resumeFile is not null)
+        {
+            await _s3Service.RemoveFileAsync(resumeFile.FileName);
+        }
+        
         _context.CandidateProfiles.Remove(profile);
         await _context.SaveChangesAsync();
 
