@@ -67,4 +67,14 @@ public class S3Service
         };
         return response;
     }
+
+    public async Task RemoveFileAsync(string key)
+    {
+        var deleteRequest = new DeleteObjectRequest
+        {
+            BucketName = _settings.BucketName,
+            Key = $"curriculums/{key}",
+        };
+        await _client.DeleteObjectAsync(deleteRequest);
+    }
 }
