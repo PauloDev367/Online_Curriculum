@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.ConfigureS3();
 builder.Services.ConfigureIdentityAuth(builder.Configuration);
 builder.ConfigureDbContext();
 builder.Services.ConfigureIdentityAuth();

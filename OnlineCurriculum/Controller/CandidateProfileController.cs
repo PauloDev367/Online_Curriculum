@@ -14,7 +14,6 @@ namespace OnlineCurriculum.Controller;
 public class CandidateProfileController : ControllerBase
 {
     private readonly CandidateProfileService _service;
-
     public CandidateProfileController(CandidateProfileService candidateProfileService)
     {
         _service = candidateProfileService;
@@ -61,9 +60,19 @@ public class CandidateProfileController : ControllerBase
         return NoContent();
     }
 
+    // [HttpPut]
+    // [Authorize(Roles = RoleConstants.Candidate)]
+    // public async Task<IActionResult> UploadCurriculumProfile([FromForm] IFormFile file)
+    // {
+    //     
+    //     return Ok();
+    // }
+    //
+    
     private Guid GetUserId()
     {
         var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         return Guid.TryParse(userIdClaim, out var userId) ? userId : Guid.Empty;
     }
+    
 }
