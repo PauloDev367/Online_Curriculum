@@ -60,6 +60,20 @@ public class RecruiterProfileController : ControllerBase
         return NoContent();
     }
 
+    [HttpGet("candidates")]
+    [Authorize(Roles = RoleConstants.Recruiter)]
+    public async Task<IActionResult> GetRecruiterProfile(
+        [FromQuery] RecruiterCandidateSearchFiltersRequest request,
+        [FromQuery] int perPage = 10,
+        [FromQuery] int page = 1)
+    {
+        var userId =  GetUserId();
+        var data = await _service
+            .searchByCandidateAsync(page, perPage, request, userId);
+        
+        return Ok(data);
+    }
+
     private Guid GetUserId()
     {
         var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

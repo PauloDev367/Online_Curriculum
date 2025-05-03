@@ -11,12 +11,13 @@ public class RecruiterService
 {
     private readonly AppDbContext _context;
     private readonly UserManager<User> _userManager;
+
     public RecruiterService(AppDbContext dbContext, UserManager<User> userManager)
     {
         _context = dbContext;
         _userManager = userManager;
     }
-    
+
     public async Task<RecruiterProfile> CreateOrUpdateProfileAsync(Guid userId, CreateRecruiterProfileRequest dto)
     {
         var existingProfile = await _context.RecruiterProfiles
@@ -37,7 +38,7 @@ public class RecruiterService
 
             var user = await _userManager.FindByIdAsync(userId.ToString());
             await _userManager.AddToRoleAsync(user, RoleConstants.Recruiter);
-            
+
             _context.RecruiterProfiles.Add(newProfile);
             await _context.SaveChangesAsync();
             return newProfile;
@@ -71,10 +72,47 @@ public class RecruiterService
 
         var user = await _userManager.FindByIdAsync(userId.ToString());
         await _userManager.RemoveFromRoleAsync(user, RoleConstants.Recruiter);
-        
+
         _context.RecruiterProfiles.Remove(profile);
         await _context.SaveChangesAsync();
         return true;
     }
-    
+
+    public async Task<PaginatedResultResponseRequest<CandidateProfile>> searchByCandidateAsync(
+        int pageNumber, int pageSize, RecruiterCandidateSearchFiltersRequest request, Guid userId)
+    {
+        var query = _context.CandidateProfiles.AsQueryable();
+
+        if (request.ExperienceYears > 0)
+            query = query.Where(cp => cp.ExperienceYears >= request.ExperienceYears);
+
+        if (!string.IsNullOrWhiteSpace(request.Technologies))
+        {
+            var techs = request.Technologies.Split(';',
+                StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            foreach (var tech in techs)
+            {
+                var pattern = $"%{tech}%";
+                query = query.Where(cp => EF.Functions.Like(cp.Technologies, pattern));
+            }
+        }
+
+        var totalItems = await query.CountAsync();
+
+        var data = await query
+            .OrderByDescending(p => p.CreatedAt)
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .AsNoTracking()
+            .Where(cp => cp.UserId != userId)
+            .ToListAsync();
+
+        return new PaginatedResultResponseRequest<CandidateProfile>
+        {
+            Items = data,
+            PageNumber = pageNumber,
+            PageSize = pageSize,
+            TotalItems = totalItems
+        };
+    }
 }

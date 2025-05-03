@@ -9,7 +9,7 @@ public class CandidateProfile
     [JsonIgnore] public User User { get; set; }
     public string FullName { get; set; }
     public string Bio { get; set; }
-    public string Technilogies { get; set; }
+    public string Technologies { get; set; }
     public int ExperienceYears { get; set; }
     public string Location { get; set; }
     public Guid? ResumeFileId { get; set; }
