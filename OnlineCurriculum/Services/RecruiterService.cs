@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineCurriculum.Data;
 using OnlineCurriculum.Enums;
@@ -11,11 +12,15 @@ public class RecruiterService
 {
     private readonly AppDbContext _context;
     private readonly UserManager<User> _userManager;
+    private readonly S3Service _s3Service;
+    private readonly HttpClient _httpClient;
 
-    public RecruiterService(AppDbContext dbContext, UserManager<User> userManager)
+    public RecruiterService(AppDbContext dbContext, UserManager<User> userManager, S3Service s3Service, HttpClient httpClient)
     {
         _context = dbContext;
         _userManager = userManager;
+        _s3Service = s3Service;
+        _httpClient = httpClient;
     }
 
     public async Task<RecruiterProfile> CreateOrUpdateProfileAsync(Guid userId, CreateRecruiterProfileRequest dto)
@@ -78,6 +83,31 @@ public class RecruiterService
         return true;
     }
 
+    public async Task<FileStreamResult> GetCurriculumToDownload(string key)
+    {
+        var resumeFileExists = await _context.ResumeFiles
+            .AsNoTracking()
+            .Where(rf => rf.FileName.ToLower() == key.ToLower())
+            .FirstOrDefaultAsync();
+
+        if (resumeFileExists is null)
+            throw new Exception("Curriculum not found");
+
+        var presignedUrl = await _s3Service.GetFileFromBucketAsync(key);
+        var response = await _httpClient.GetAsync(presignedUrl);
+        if(!response.IsSuccessStatusCode)
+            throw new Exception("Curriculum not found");
+        
+        var contentType = response.Content.Headers.ContentType?.ToString();
+        var fileStream = await response.Content.ReadAsStreamAsync();
+        var fileName = GetFileNameFromUrl(presignedUrl);
+
+        return new FileStreamResult(fileStream, contentType)
+        {
+            FileDownloadName = fileName
+        };
+    }
+    
     public async Task<PaginatedResultResponseRequest<CandidateProfile>> searchByCandidateAsync(
         int pageNumber, int pageSize, RecruiterCandidateSearchFiltersRequest request, Guid userId)
     {
@@ -114,5 +144,10 @@ public class RecruiterService
             PageSize = pageSize,
             TotalItems = totalItems
         };
+    }
+    
+    private string GetFileNameFromUrl(string url)
+    {
+        return Path.GetFileName(new Uri(url).AbsolutePath);
     }
 }

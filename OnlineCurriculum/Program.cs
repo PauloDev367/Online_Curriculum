@@ -2,10 +2,12 @@ using OnlineCurriculum.Extensions;
 DotNetEnv.Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddMemoryCache();
+builder.Services.AddHttpClient();
 
 builder.Services.AddControllers();
 
-builder.ConfigureS3();
+await builder.ConfigureS3();
 builder.Services.ConfigureIdentityAuth(builder.Configuration);
 builder.ConfigureDbContext();
 builder.Services.ConfigureIdentityAuth();

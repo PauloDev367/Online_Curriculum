@@ -74,6 +74,14 @@ public class RecruiterProfileController : ControllerBase
         return Ok(data);
     }
 
+    [HttpGet("candidates/resume-file/{key}")]
+    [Authorize(Roles = RoleConstants.Recruiter)]
+    public async Task<IActionResult> GetResumeFile([FromRoute] string key)
+    {
+        var resumeFile = await _service.GetCurriculumToDownload(key);
+        return resumeFile is not null ? resumeFile : NotFound("Curriculum not found.");
+    }
+
     private Guid GetUserId()
     {
         var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
