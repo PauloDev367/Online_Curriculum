@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineCurriculum.Enums;
@@ -8,6 +9,7 @@ namespace OnlineCurriculum.Controller;
 
 [ApiController]
 [Route("api/v1/recruiter-profiles")]
+[Authorize]
 public class RecruiterProfileController : ControllerBase
 {
     private readonly RecruiterService _service;
@@ -17,5 +19,50 @@ public class RecruiterProfileController : ControllerBase
         _service = service;
     }
 
-   
+    [HttpPost]
+    public async Task<IActionResult> CreateOrUpdateProfile([FromBody] CreateRecruiterProfileRequest dto)
+    {
+        var userId = GetUserId();
+        if (userId == Guid.Empty)
+            return Unauthorized();
+
+        var profile = await _service.CreateOrUpdateProfileAsync(userId, dto);
+        return Ok(profile);
+    }
+
+    [HttpGet]
+    [Authorize(Roles = RoleConstants.Recruiter)]
+    public async Task<IActionResult> GetProfile()
+    {
+        var userId = GetUserId();
+        if (userId == Guid.Empty)
+            return Unauthorized();
+
+        var profile = await _service.GetProfileAsync(userId);
+        if (profile == null)
+            return NotFound("Profile not found.");
+
+        return Ok(profile);
+    }
+
+    [HttpDelete]
+    [Authorize(Roles = RoleConstants.Recruiter)]
+    public async Task<IActionResult> DeleteProfile()
+    {
+        var userId = GetUserId();
+        if (userId == Guid.Empty)
+            return Unauthorized();
+
+        var success = await _service.DeleteProfileAsync(userId);
+        if (!success)
+            return NotFound("Profile not found.");
+
+        return NoContent();
+    }
+
+    private Guid GetUserId()
+    {
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        return Guid.TryParse(userIdClaim, out var userId) ? userId : Guid.Empty;
+    }
 }
