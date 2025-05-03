@@ -67,10 +67,10 @@ public class RecruiterProfileController : ControllerBase
         [FromQuery] int perPage = 10,
         [FromQuery] int page = 1)
     {
-        var userId =  GetUserId();
+        var userId = GetUserId();
         var data = await _service
             .searchByCandidateAsync(page, perPage, request, userId);
-        
+
         return Ok(data);
     }
 
@@ -86,5 +86,13 @@ public class RecruiterProfileController : ControllerBase
     {
         var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         return Guid.TryParse(userIdClaim, out var userId) ? userId : Guid.Empty;
+    }
+
+    [HttpGet("candidates/{id}")]
+    [Authorize(Roles = RoleConstants.Recruiter)]
+    public async Task<IActionResult> GetCandidateProfile([FromRoute] Guid id)
+    {
+        var data = await _service.GetCandidateProfileAsync(id);
+        return Ok(data);
     }
 }

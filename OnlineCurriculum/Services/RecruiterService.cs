@@ -15,7 +15,8 @@ public class RecruiterService
     private readonly S3Service _s3Service;
     private readonly HttpClient _httpClient;
 
-    public RecruiterService(AppDbContext dbContext, UserManager<User> userManager, S3Service s3Service, HttpClient httpClient)
+    public RecruiterService(AppDbContext dbContext, UserManager<User> userManager, S3Service s3Service,
+        HttpClient httpClient)
     {
         _context = dbContext;
         _userManager = userManager;
@@ -95,9 +96,9 @@ public class RecruiterService
 
         var presignedUrl = await _s3Service.GetFileFromBucketAsync(key);
         var response = await _httpClient.GetAsync(presignedUrl);
-        if(!response.IsSuccessStatusCode)
+        if (!response.IsSuccessStatusCode)
             throw new Exception("Curriculum not found");
-        
+
         var contentType = response.Content.Headers.ContentType?.ToString();
         var fileStream = await response.Content.ReadAsStreamAsync();
         var fileName = GetFileNameFromUrl(presignedUrl);
@@ -107,7 +108,7 @@ public class RecruiterService
             FileDownloadName = fileName
         };
     }
-    
+
     public async Task<PaginatedResultResponseRequest<CandidateProfile>> searchByCandidateAsync(
         int pageNumber, int pageSize, RecruiterCandidateSearchFiltersRequest request, Guid userId)
     {
@@ -145,7 +146,27 @@ public class RecruiterService
             TotalItems = totalItems
         };
     }
-    
+
+    public async Task<CandidateProfileResponse> GetCandidateProfileAsync(Guid candidateId)
+    {
+        var data = await _context.CandidateProfiles
+            .Select(cp => new CandidateProfileResponse
+            {
+                Id = cp.Id,
+                FullName = cp.FullName,
+                ExperienceYears = cp.ExperienceYears,
+                Bio = cp.Bio,
+                Technologies = cp.Technologies,
+                Location = cp.Location,
+            })
+            .Where(cp => cp.Id.Equals(candidateId))
+            .AsNoTracking()
+            .FirstOrDefaultAsync();
+        if (data is null)
+            throw new Exception("Candidate not found");
+        return data;
+    }
+
     private string GetFileNameFromUrl(string url)
     {
         return Path.GetFileName(new Uri(url).AbsolutePath);
