@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 await builder.ConfigureS3();
 builder.Services.ConfigureIdentityAuth(builder.Configuration);
 builder.ConfigureDbContext();
-builder.Services.ConfigureIdentityAuth();
+builder.Services.ConfigureDependencies();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
