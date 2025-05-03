@@ -33,7 +33,7 @@ public class CandidateProfileService
                 UserId = userId,
                 FullName = request.FullName,
                 Bio = request.Bio,
-                Technilogies = request.Technilogies,
+                Technologies = request.Technologies,
                 ExperienceYears = request.ExperienceYears,
                 Location = request.Location,
                 CreatedAt = DateTime.UtcNow,
@@ -51,7 +51,7 @@ public class CandidateProfileService
         {
             existingProfile.FullName = request.FullName;
             existingProfile.Bio = request.Bio;
-            existingProfile.Technilogies = request.Technilogies;
+            existingProfile.Technologies = request.Technologies;
             existingProfile.ExperienceYears = request.ExperienceYears;
             existingProfile.Location = request.Location;
             existingProfile.UpdatedAt = DateTime.UtcNow;
