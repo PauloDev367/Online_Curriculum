@@ -8,10 +8,11 @@ namespace OnlineCurriculum.Controller;
 public class AuthController : ControllerBase
 {
     private readonly IdentityService _identityService;
-
-    public AuthController(IdentityService identityService)
+    private readonly ILogger<CandidateProfileController> _logger;
+    public AuthController(IdentityService identityService, ILogger<CandidateProfileController> logger)
     {
         _identityService = identityService;
+        _logger = logger;
     }
     
     [HttpPost("users")]
