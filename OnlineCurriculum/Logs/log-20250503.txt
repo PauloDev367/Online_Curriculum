@@ -1,0 +1,146 @@
+2025-05-03 22:02:27.797 -03:00 [INF] User profile is available. Using '/home/paulo/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-05-03 22:02:28.937 -03:00 [INF] Executed DbCommand (41ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-03 22:02:29.001 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-03 22:02:29.003 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-03 22:02:29.009 -03:00 [INF] Starting OnlineCurriculum API
+2025-05-03 22:02:29.056 -03:00 [INF] Now listening on: http://localhost:5276
+2025-05-03 22:02:29.058 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-03 22:02:29.058 -03:00 [INF] Hosting environment: Development
+2025-05-03 22:02:29.058 -03:00 [INF] Content root path: /home/paulo/Documentos/1-Projetos/1-curriculos-online/OnlineCurriculum/OnlineCurriculum
+2025-05-03 22:02:35.828 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/index.html - null null
+2025-05-03 22:02:35.904 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/index.html - 200 null text/html;charset=utf-8 76.9103ms
+2025-05-03 22:02:35.980 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - null null
+2025-05-03 22:02:36.062 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 82.3712ms
+2025-05-03 22:03:53.447 -03:00 [INF] Application is shutting down...
+2025-05-03 22:04:42.506 -03:00 [INF] User profile is available. Using '/home/paulo/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-05-03 22:04:43.680 -03:00 [INF] Executed DbCommand (39ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-03 22:04:43.754 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-03 22:04:43.758 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-03 22:04:43.764 -03:00 [INF] Starting OnlineCurriculum API
+2025-05-03 22:04:43.815 -03:00 [INF] Now listening on: http://localhost:5276
+2025-05-03 22:04:43.816 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-03 22:04:43.816 -03:00 [INF] Hosting environment: Development
+2025-05-03 22:04:43.816 -03:00 [INF] Content root path: /home/paulo/Documentos/1-Projetos/1-curriculos-online/OnlineCurriculum/OnlineCurriculum
+2025-05-03 22:04:44.623 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/index.html - null null
+2025-05-03 22:04:44.706 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/index.html - 200 null text/html;charset=utf-8 83.4734ms
+2025-05-03 22:04:44.775 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - null null
+2025-05-03 22:04:44.866 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 90.6075ms
+2025-05-03 22:06:47.719 -03:00 [INF] Application is shutting down...
+2025-05-03 22:06:59.319 -03:00 [INF] User profile is available. Using '/home/paulo/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-05-03 22:07:00.596 -03:00 [INF] Executed DbCommand (39ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-03 22:07:00.671 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-03 22:07:00.675 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-05-03 22:07:00.679 -03:00 [INF] Starting OnlineCurriculum API
+2025-05-03 22:07:00.732 -03:00 [INF] Now listening on: http://localhost:5276
+2025-05-03 22:07:00.733 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-03 22:07:00.733 -03:00 [INF] Hosting environment: Development
+2025-05-03 22:07:00.733 -03:00 [INF] Content root path: /home/paulo/Documentos/1-Projetos/1-curriculos-online/OnlineCurriculum/OnlineCurriculum
+2025-05-03 22:07:03.254 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/index.html - null null
+2025-05-03 22:07:03.341 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/index.html - 200 null text/html;charset=utf-8 87.7179ms
+2025-05-03 22:07:03.406 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - null null
+2025-05-03 22:07:03.489 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 83.2952ms
+2025-05-03 22:07:16.371 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - null null
+2025-05-03 22:07:16.377 -03:00 [WRN] Failed to determine the https port for redirect.
+2025-05-03 22:07:16.390 -03:00 [INF] Executing endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:16.395 -03:00 [INF] Route matched with {action = "TestLog", controller = "Auth", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TestLog() on controller OnlineCurriculum.Controller.AuthController (OnlineCurriculum).
+2025-05-03 22:07:16.404 -03:00 [INF] Executing action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) - Validation state: "Valid"
+2025-05-03 22:07:16.405 -03:00 [INF] Test log from CandidateProfileController
+2025-05-03 22:07:16.408 -03:00 [INF] Executed action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.5199ms.
+2025-05-03 22:07:16.413 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-03 22:07:16.416 -03:00 [INF] Executed action OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) in 18.1312ms
+2025-05-03 22:07:16.416 -03:00 [INF] Executed endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:16.417 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - 200 null text/plain; charset=utf-8 45.8016ms
+2025-05-03 22:07:38.680 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - null null
+2025-05-03 22:07:38.683 -03:00 [INF] Executing endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:38.683 -03:00 [INF] Route matched with {action = "TestLog", controller = "Auth", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TestLog() on controller OnlineCurriculum.Controller.AuthController (OnlineCurriculum).
+2025-05-03 22:07:38.685 -03:00 [INF] Executing action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) - Validation state: "Valid"
+2025-05-03 22:07:38.686 -03:00 [INF] Test log from CandidateProfileController
+2025-05-03 22:07:38.686 -03:00 [INF] Executed action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0635ms.
+2025-05-03 22:07:38.686 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-03 22:07:38.686 -03:00 [INF] Executed action OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) in 2.7269ms
+2025-05-03 22:07:38.686 -03:00 [INF] Executed endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:38.686 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - 200 null text/plain; charset=utf-8 6.1969ms
+2025-05-03 22:07:39.327 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - null null
+2025-05-03 22:07:39.329 -03:00 [INF] Executing endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:39.329 -03:00 [INF] Route matched with {action = "TestLog", controller = "Auth", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TestLog() on controller OnlineCurriculum.Controller.AuthController (OnlineCurriculum).
+2025-05-03 22:07:39.340 -03:00 [INF] Executing action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) - Validation state: "Valid"
+2025-05-03 22:07:39.340 -03:00 [INF] Test log from CandidateProfileController
+2025-05-03 22:07:39.340 -03:00 [INF] Executed action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.1399ms.
+2025-05-03 22:07:39.340 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-03 22:07:39.341 -03:00 [INF] Executed action OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) in 11.8697ms
+2025-05-03 22:07:39.341 -03:00 [INF] Executed endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:39.341 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - 200 null text/plain; charset=utf-8 14.2613ms
+2025-05-03 22:07:39.471 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - null null
+2025-05-03 22:07:39.471 -03:00 [INF] Executing endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:39.471 -03:00 [INF] Route matched with {action = "TestLog", controller = "Auth", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TestLog() on controller OnlineCurriculum.Controller.AuthController (OnlineCurriculum).
+2025-05-03 22:07:39.472 -03:00 [INF] Executing action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) - Validation state: "Valid"
+2025-05-03 22:07:39.472 -03:00 [INF] Test log from CandidateProfileController
+2025-05-03 22:07:39.472 -03:00 [INF] Executed action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.0603ms.
+2025-05-03 22:07:39.472 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-03 22:07:39.473 -03:00 [INF] Executed action OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) in 1.084ms
+2025-05-03 22:07:39.473 -03:00 [INF] Executed endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:39.473 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - 200 null text/plain; charset=utf-8 1.9732ms
+2025-05-03 22:07:39.619 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - null null
+2025-05-03 22:07:39.619 -03:00 [INF] Executing endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:39.619 -03:00 [INF] Route matched with {action = "TestLog", controller = "Auth", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult TestLog() on controller OnlineCurriculum.Controller.AuthController (OnlineCurriculum).
+2025-05-03 22:07:39.620 -03:00 [INF] Executing action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) - Validation state: "Valid"
+2025-05-03 22:07:39.620 -03:00 [INF] Test log from CandidateProfileController
+2025-05-03 22:07:39.620 -03:00 [INF] Executed action method OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.069ms.
+2025-05-03 22:07:39.620 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-03 22:07:39.620 -03:00 [INF] Executed action OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum) in 0.8822ms
+2025-05-03 22:07:39.621 -03:00 [INF] Executed endpoint 'OnlineCurriculum.Controller.AuthController.TestLog (OnlineCurriculum)'
+2025-05-03 22:07:39.621 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/v1/auth/test-log - 200 null text/plain; charset=utf-8 1.6714ms
+2025-05-03 22:08:04.408 -03:00 [INF] Application is shutting down...
+2025-05-03 22:09:34.330 -03:00 [INF] Starting OnlineCurriculum API
+2025-05-03 22:09:55.409 -03:00 [WRN] Failed to determine the https 2025-05-03 22:09:552025-05-03 22:09:55.440 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:56.375 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:56.980 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:57.125 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:57.257 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:57.410 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:11:51.902 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:11:52.836 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:12:28.775 -03:00 [INF] Test log from CandidateProfile2025-05-03 22:12:28.775 -03:00 [INF] Test log from CandidateProfileController
+2025-05-03 22:16:30.320 -03:00 [INF] Starting OnlineCurriculum API
+2025-05-03 22:16:40.247 -03:00 [WRN] Failed to determine the https 2025-05-03 22:16:402025-05-03 22:16:40.274 -03:00 [ERR] Unhandled exception for reques2025-05-03 22:16:40.274 -03:00 [ERR] Unhandled exception for request /api/v1/auth/crash
+System.Exception: Simulated server error
+   at OnlineCurriculum.Controller.AuthController.Crash() in /home/paulo/Documentos/1-Projetos/1-curriculos-online/OnlineCurriculum/OnlineCurriculum/Controller/AuthController.cs:line 50
+   at lambda_method51(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at OnlineCurriculum.Middleware.ExceptionHandlingMiddleware.Invoke(HttpContext context) in /home/paulo/Documentos/1-Projetos/1-curriculos-online/OnlineCurriculum/OnlineCurriculum/Middleware/ExceptionHandlingMiddleware.cs:line 21
