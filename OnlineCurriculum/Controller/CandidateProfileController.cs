@@ -63,10 +63,11 @@ public class CandidateProfileController : ControllerBase
 
     [HttpPut]
     [Authorize(Roles = RoleConstants.Candidate)]
-    public async Task<IActionResult> UploadCurriculumProfile([FromForm] IFormFile file)
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> UploadCurriculumProfile([FromForm] UploadCurriculumRequest dto)
     {
         var userId = GetUserId();
-        var upload = await _service.UploadResumeFileAsync(userId, file);
+        var upload = await _service.UploadResumeFileAsync(userId, dto.File);
         return Ok(upload);
     }
     private Guid GetUserId()
