@@ -5,6 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMemoryCache();
 builder.Services.AddHttpClient();
 
+builder.Services.AddSwaggerWithJwtAuth();
+
 builder.Services.AddControllers();
 
 await builder.ConfigureS3();
@@ -13,7 +15,6 @@ builder.ConfigureDbContext();
 builder.Services.ConfigureDependencies();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 app.MapControllers();
