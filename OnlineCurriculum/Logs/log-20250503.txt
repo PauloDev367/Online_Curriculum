@@ -120,3 +120,27 @@ WHERE [a].[NormalizedName] = @__normalizedName_0
 2025-05-03 22:08:04.408 -03:00 [INF] Application is shutting down...
 2025-05-03 22:09:34.330 -03:00 [INF] Starting OnlineCurriculum API
 2025-05-03 22:09:55.409 -03:00 [WRN] Failed to determine the https 2025-05-03 22:09:552025-05-03 22:09:55.440 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:56.375 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:56.980 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:57.125 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:57.257 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:09:57.410 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:11:51.902 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:11:52.836 -03:00 [INF] Test log from CandidateProfile2025-05-03 2025-05-03 22:12:28.775 -03:00 [INF] Test log from CandidateProfile2025-05-03 22:12:28.775 -03:00 [INF] Test log from CandidateProfileController
+2025-05-03 22:16:30.320 -03:00 [INF] Starting OnlineCurriculum API
+2025-05-03 22:16:40.247 -03:00 [WRN] Failed to determine the https 2025-05-03 22:16:402025-05-03 22:16:40.274 -03:00 [ERR] Unhandled exception for reques2025-05-03 22:16:40.274 -03:00 [ERR] Unhandled exception for request /api/v1/auth/crash
+System.Exception: Simulated server error
+   at OnlineCurriculum.Controller.AuthController.Crash() in /home/paulo/Documentos/1-Projetos/1-curriculos-online/OnlineCurriculum/OnlineCurriculum/Controller/AuthController.cs:line 50
+   at lambda_method51(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at OnlineCurriculum.Middleware.ExceptionHandlingMiddleware.Invoke(HttpContext context) in /home/paulo/Documentos/1-Projetos/1-curriculos-online/OnlineCurriculum/OnlineCurriculum/Middleware/ExceptionHandlingMiddleware.cs:line 21

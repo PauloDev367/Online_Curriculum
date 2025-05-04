@@ -22,6 +22,7 @@ builder.Services.ConfigureDependencies();
 builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
+app.UseGlobalExceptionHandler();
 app.MapControllers();
 
 if (app.Environment.IsDevelopment())
