@@ -1,5 +1,7 @@
 # Online Curriculum API
 
+<img src="./assets/1.png" with="100%">
+
 This project is a backend API developed with **.NET 8** and **SQL Server**, designed to manage curriculum submissions and profile information for **Candidates** and **Recruiters**. It also supports file uploads (CVs) to **AWS S3** and uses **JWT + Refresh Tokens** for authentication.
 
 > Currently, the system supports Candidate and Recruiter profiles. An Admin role is reserved for future features but has no functionality yet.
