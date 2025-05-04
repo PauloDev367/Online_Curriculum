@@ -183,6 +183,86 @@ sudo systemctl restart nginx
 
 ---
 
+## 📊 Logging & Monitoring
+
+The API uses [**Serilog**](https://serilog.net/) as the logging framework for structured logs, configured to write to:
+
+- **Console**: for development/debugging
+- **File**: stored in the `Logs/` folder with daily rolling files
+- **Seq**: centralized log storage and analysis
+
+Logs are automatically recorded for unhandled exceptions via a global middleware, which also returns a standard `500 Internal Server Error` JSON response to the client.
+
+To customize logging, check the `serilog.json` file in the root of the project. Example log:
+
+```json
+{
+  "@t": "2025-05-03T22:00:00Z",
+  "@m": "Unhandled exception for request /api/profile",
+  "SourceContext": "OnlineCurriculum.Controllers.CandidateProfileController",
+  "Level": "Error"
+}
+````
+
+You can search logs by application, request path, error type, or structured values.
+
+---
+
+## 🐳 Docker Compose for Seq (Log Server)
+
+To run Seq locally with persistent storage and a predefined API key, use the following `docker-compose.yml`:
+
+```yaml
+version: '3.8'
+
+services:
+  seq:
+    image: datalust/seq:latest
+    container_name: seq
+    ports:
+      - "5341:80"
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_API_KEY=dev-api-key
+    volumes:
+      - ./seq-data:/data
+    restart: unless-stopped
+```
+
+### ▶️ Running Seq
+
+```bash
+docker compose up -d
+```
+
+Once running, access Seq at:
+➡️ `http://localhost:5341`
+
+You can search logs like this:
+
+```
+Application = 'OnlineCurriculum'
+```
+
+To integrate with the API, ensure `serilog.json` includes the correct `serverUrl` and optional `apiKey`:
+
+```json
+{
+  "WriteTo": [
+    {
+      "Name": "Seq",
+      "Args": {
+        "serverUrl": "http://localhost:5341",
+        "apiKey": "dev-api-key"
+      }
+    }
+  ]
+}
+```
+
+---
+
+
 ## 📄 License
 
 MIT License – © 2025 Paulo Silva
